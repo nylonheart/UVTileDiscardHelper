@@ -70,8 +70,15 @@ class CustomPanel(bpy.types.Panel):
         for y in range(3, -1, -1):
             row = layout.row()
             for x in range(0, 4):
-                op = row.operator(MoveSelectedVertsUVOperator.bl_idname, text=f"(X+{x})(Y+{y})")
+                op = row.operator(MoveSelectedVertsUVOperator.bl_idname, text=f"X+{x},Y+{y}")
                 op.x_offset, op.y_offset = x, y
+                
+        # 追加の2x1マトリクスボタン
+        row = layout.row()
+        op = row.operator(MoveSelectedVertsUVOperator.bl_idname, text="X-1")
+        op.x_offset, op.y_offset = -1, 0
+        op = row.operator(MoveSelectedVertsUVOperator.bl_idname, text="Y-1")
+        op.x_offset, op.y_offset = 0, -1
 
 # オペレーターとパネルを登録
 def register():
