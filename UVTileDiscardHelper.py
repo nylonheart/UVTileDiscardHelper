@@ -61,7 +61,7 @@ class CustomPanel(bpy.types.Panel):
     bl_idname = "OBJECT_PT_custom_vertex_tools"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'Edit'
+    bl_category = 'Nylonheart'
 
     def draw(self, context):
         layout = self.layout
