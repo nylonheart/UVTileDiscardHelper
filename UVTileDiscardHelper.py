@@ -12,13 +12,16 @@ class SelectMovedVertsOperator(bpy.types.Operator):
             key_blocks = obj.data.shape_keys.key_blocks
             base_key = key_blocks[0]
             active_key = obj.active_shape_key
-
+            
             if active_key:
                 bpy.ops.object.mode_set(mode='OBJECT')
                 for i, vert in enumerate(obj.data.vertices):
                     if (base_key.data[i].co - active_key.data[i].co).length > 0.0001:
                         vert.select = True
                 bpy.ops.object.mode_set(mode='EDIT')
+                
+                # 頂点編集にしないと表示が反映されない
+                bpy.context.tool_settings.mesh_select_mode = (True, False, False)
             else:
                 self.report({'WARNING'}, "No active shape key found")
         else:
