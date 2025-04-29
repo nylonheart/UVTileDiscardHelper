@@ -1,3 +1,13 @@
+bl_info = {
+    "name": "NH_UVTileDiscard Helper",
+    "author": "Nylonheart",
+    "version": (1, 0),
+    "blender": (4, 3, 0),
+    "location": "3D View > Sidebar > Nylonheart",
+    "description": "Assist with selecting moved vertices via shapekeys and quickly moving their UVs with predefined offsets.",
+    "category": "UV",
+}
+
 import bpy
 
 # 頂点を選択するオペレーター
